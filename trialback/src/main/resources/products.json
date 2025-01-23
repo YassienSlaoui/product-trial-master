@@ -1,0 +1,36 @@
+
+  [
+    {
+      "id": 1,
+      "code": "P001",
+      "name": "Laptop",
+      "description": "High-end gaming laptop",
+      "image": "laptop.png",
+      "category": "Electronics",
+      "price": 1200.99,
+      "quantity": 10,
+      "internalReference": "LAP123",
+      "shellId": 101,
+      "inventoryStatus": "INSTOCK",
+      "rating": 4.5,
+      "createdAt": 1672531200000,
+      "updatedAt": 1675132800000
+    },
+    {
+      "id": 2,
+      "code": "P002",
+      "name": "Smartphone",
+      "description": "Latest smartphone with 5G",
+      "image": "smartphone.png",
+      "category": "Electronics",
+      "price": 699.99,
+      "quantity": 5,
+      "internalReference": "PHN456",
+      "shellId": 102,
+      "inventoryStatus": "LOWSTOCK",
+      "rating": 4.0,
+      "createdAt": 1675132800000,
+      "updatedAt": 1677711200000
+    }
+  ]
+

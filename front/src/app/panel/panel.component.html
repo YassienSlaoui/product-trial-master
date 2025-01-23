@@ -1,0 +1,25 @@
+<h1 class="text-center">Panel</h1>
+
+<p-dataView #dv [value]="productEntries">
+  <ng-template pTemplate="list" let-entry>
+    <p-card class="block mb-2">
+      <span class="font-medium text-secondary text-sm">{{ entry[0].category }}</span>
+      <div class="relative text-lg font-medium text-900 mt-2">
+        {{ entry[0].name }} ({{ entry[0].description }})
+        <span class="absolute top-0 right-0 text-sm font-bold text-primary">
+          {{ entry[1] }} 
+        </span>
+      </div>
+      <div class="text-lg font-medium text-900 mt-2">{{ entry[0].price | currency }}</div>
+      <div class="text-lg font-medium text-900 mt-2">
+        <star-rating [starType]="'svg'" [rating]="entry[0].rating"></star-rating>
+      </div>
+      <ng-template pTemplate="footer">
+        <div class="flex gap-3 mt-1">
+          <p-button label="Supprimer" severity="danger"  (onClick)="RemoveFromPanel(entry[0])"></p-button>
+          <p-button label="Reduce One" class="hover:bg-orange-700"  (onClick)="ReduceOneFromPanel(entry[0])"></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </ng-template>
+</p-dataView>
