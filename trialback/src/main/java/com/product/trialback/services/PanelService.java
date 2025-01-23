@@ -6,11 +6,11 @@ import com.product.trialback.model.UserEntity;
 
 public interface PanelService {
 
-    PanelEntity panelList(UserEntity userEntity);
+    PanelEntity panelList(String userId);
 
-    PanelEntity addToPanelList(Integer productId, Integer number);
+    PanelEntity addToPanelList(Integer productId, Integer number ,String user);
 
-    PanelEntity removeFromPanelList(Integer productId , Integer number);
+    PanelEntity removeFromPanelList(Integer productId , Integer number,String user);
 
-    PanelEntity dropPanelList();
+    PanelEntity dropPanelList(String user);
 }

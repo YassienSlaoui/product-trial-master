@@ -6,7 +6,7 @@ import java.util.Map;
 @Data
 public class PanelEntity {
 
-    UserEntity userEntity;
+    String username;
 
-    Map<Integer,Integer> poductMap;
+    Map<Product,Integer> poductMap;
 }
