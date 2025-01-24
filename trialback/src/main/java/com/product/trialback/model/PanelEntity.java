@@ -8,5 +8,5 @@ public class PanelEntity {
 
     String username;
 
-    Map<Product,Integer> poductMap;
+    Map<Integer,Integer> poductMap;
 }
