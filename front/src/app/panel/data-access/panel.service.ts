@@ -18,12 +18,12 @@ export class PanelService {
         this.panelProducts.set(new Map(currentMap));
       }
 
-      public RemoveFromPanel(product: Product) {
+      public removeFromPanel(product: Product) {
         let currentMap = this.panelProducts(); 
         currentMap.delete(product);
         this.panelProducts.set(new Map(currentMap));
       }
-      public ReduceOneFromPanel(product: Product) {
+      public reduceOneFromPanel(product: Product) {
         let currentMap = this.panelProducts(); 
         const currentValue = currentMap.get(product) || 0;
 

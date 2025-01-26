@@ -1,4 +1,4 @@
-import { Component ,inject,signal} from '@angular/core';
+import { Component ,inject,OnInit,signal} from '@angular/core';
 import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 
@@ -6,8 +6,6 @@ import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/dialog';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from "app/shared/sharedModule";
-import { Product } from 'app/products/data-access/product.model';
-import { ProductsService } from 'app/products/data-access/products.service';
 import { PanelService } from './data-access/panel.service';
 @Component({
   selector: 'app-panel',
@@ -16,20 +14,30 @@ import { PanelService } from './data-access/panel.service';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.css'
 })
-export class PanelComponent {
+export class PanelComponent{
+  
   private  panelService = inject(PanelService);
-  public panelProducts = this.panelService.panelProducts;
+  public panelProducts = Array.from((this.panelService.panelProducts()).entries());
+  public total = this.getTotal(); 
 
-
-  get productEntries(): [any, number][] {
-    const xx  =  Array.from(this.panelProducts().entries());
-    return xx;
+  public getTotal(){ 
+    let total = 0
+    this.panelProducts.forEach(element => {
+      total += element[0].price*element[1];
+    });
+   return total;
   }
-  public RemoveFromPanel(product:Product){
-        this.panelService.RemoveFromPanel(product);
+
+  public removeFromPanel(product:any){
+        this.panelService.removeFromPanel(product);
+        this.panelProducts = Array.from((this.panelService.panelProducts()).entries());
+        this.total = this.getTotal(); 
   }
 
-  public ReduceOneFromPanel(product:Product){
-    this.panelService.ReduceOneFromPanel(product);
+  public reduceOneFromPanel(product:any){
+   
+    this.panelService.reduceOneFromPanel(product);
+    this.panelProducts = Array.from((this.panelService.panelProducts()).entries());
+    this.total = this.getTotal(); 
 }
 }

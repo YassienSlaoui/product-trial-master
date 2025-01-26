@@ -26,9 +26,9 @@ import { MenuItem } from "primeng/api";
             routerLink: ['/products/list']
         },
         {
-            label: 'Panel',
-            icon: 'pi pi-clipboard',
-            routerLink: ['/panel']
+            label: 'Contact',
+            icon: 'pi pi-address-book',
+            routerLink: ['/contact']
         }
     ]
   }
